@@ -123,10 +123,10 @@ addFormSpace?.addEventListener("click",(e)=>{
 })
 //open text movile
 todosContainer.addEventListener("click",(e)=>{
-    if(e.target.classList[0]==="todo-item__header-icon"){
-        const icon = e.target.firstElementChild;
+    if(e.target.classList[0]==="todo-item__header"){
+        const icon = e.target.firstElementChild.nextElementSibling.firstElementChild;
         icon.classList.toggle("activate")
-        const textBox = e.target.parentElement.nextElementSibling;
+        const textBox = e.target.nextElementSibling;
         textBox.classList.toggle("todo-item-hidden");
     }
 })
