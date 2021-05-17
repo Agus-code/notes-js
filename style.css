@@ -119,6 +119,7 @@ body{
     font-weight: 600;
     background: #fff;
     cursor: pointer;
+    transition: .1405s linear;
 }
 .addBtnBox__icon{
     margin-left: 8px;
@@ -219,6 +220,9 @@ body{
     border: 1px solid #ccc;
 }
 
+.box-color.color-choose{
+    border: 3px solid #555;
+}
 .button-item{
     grid-template-columns: auto;
 }
@@ -308,7 +312,7 @@ body{
 }
 .color-item{
     text-align: center;
-    grid-template-columns: 25% repeat(5,1fr);
+    grid-template-columns: 25% repeat(6,1fr);
 }
 .box-color{
     display: inline-block;
@@ -330,6 +334,7 @@ body{
 .color-green{background: #00b894;}
 .color-yellow{background: #fdcb6e;}
 .color-violet{background: #6c5ce7;}
+.color-pink{background: #e84393;}
 .editTodo-form__btn-button{
     width: 100%;
     font-size: 1.2rem;
@@ -346,7 +351,7 @@ body{
     color: #fff;
 }
 @media only screen and (min-width: 900px){
-    .addTodo-containe,
+    .addTodo-container,
     .editTodo-container{
         width: 40%;
     }
@@ -403,7 +408,6 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background: #0984e3;
 }
 .todo-item__header-h4{
     margin: 0;
@@ -412,19 +416,26 @@ body{
 .todo-item__header-icon{
     font-size: 1.5rem;
 }
+.todo-item__header-icon__toggle{
+    pointer-events: none;
+    transition: .2s linear;
+}
+.todo-item__header-icon__toggle.activate{
+    transform: rotateZ(180deg);
+}
 .todo-item-hidden{
     display: none;
 }
 .todo-item__main{
     border-bottom: 1px solid #000;
     padding: 5px 10px;
-    background: #74b9ff;
+    min-height: 140px;
 }
 .todo-item__main-p{
     margin: 0;
+    margin-right: 10px;
 }
 .todo-item__footer{
-    background: #0984e3;
     display: flex;
     padding: 2px 10px;
     justify-content: space-between;
@@ -443,6 +454,49 @@ body{
 }
 .todo-item.active > .todo-item__header{
     border-bottom: 1px solid #000;
+}
+
+.todo-item.todo-red .todo-item__header,
+.todo-item.todo-red .todo-item__footer{
+    background: #d63031;
+}
+.todo-item.todo-red .todo-item__main{
+    background-color: #ff7675;
+}
+.todo-item.todo-blue .todo-item__header,
+.todo-item.todo-blue .todo-item__footer{
+    background: #0984e3;
+}
+.todo-item.todo-blue .todo-item__main{
+    background-color: #74b9ff;
+}
+.todo-item.todo-green .todo-item__header,
+.todo-item.todo-green .todo-item__footer{
+    background: #00b894;
+}
+.todo-item.todo-green .todo-item__main{
+    background-color: #55efc4;
+}
+.todo-item.todo-yellow .todo-item__header,
+.todo-item.todo-yellow .todo-item__footer{
+    background: #fdcb6e;
+}
+.todo-item.todo-yellow .todo-item__main{
+    background-color: #ffeaa7;
+}
+.todo-item.todo-violet .todo-item__header,
+.todo-item.todo-violet .todo-item__footer{
+    background: #6c5ce7;
+}
+.todo-item.todo-violet .todo-item__main{
+    background: #a29bfe;
+}
+.todo-item.todo-pink .todo-item__header,
+.todo-item.todo-pink .todo-item__footer{
+    background: #e84393;
+}
+.todo-item.todo-pink .todo-item__main{
+    background: #fd79a8;
 }
 @media only screen and (min-width: 900px){
     .todos{
