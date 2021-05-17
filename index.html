@@ -1,14 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!---->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo list JS</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <!--FONTS GOOGLE-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>
-        To Do
-    </h1>
+    <!--HEADER-->
+    <header class="header">
+        <div class="header-container">
+            <div class="header-title">
+                <h1 class="header-title__h1">
+                    ToDo List JS
+                </h1>
+            </div>
+            <div class="header-count">
+                <span class="header-count__txt">ToDos</span>
+                <span class="header-count__num">13</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEARCH AND ADD-->
+    <section class="searchAndAdd">
+        <div class="searchAndAdd-container">
+            <div class="search">
+                <div class="searchBox">
+                    <input type="text" placeholder="Search ToDo" class="searchBox__input"/>
+                    <i class="searchBox__icon fas fa-search"></i>
+                </div>
+            </div>
+            <div class="addBtn">
+                <div class="addBtnBox">
+                    <button class="addBtnBox__btn">
+                        New ToDo
+                        <i class="addBtnBox__icon fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIVITION -->
+    <span class="divition"></span>
+
+    <!-- ADD TODO -->
+    <div class="addTodo" style="display: none;">
+        <div class="addTodo-container">
+            <header class="addTodo-header">
+                <h3 class="addTodo-header__h3">
+                    New ToDo
+                </h3>
+                <div class="addTodo-header__icon">
+                    <i class="addTodo-header__icon-close fas fa-times"></i>
+                </div>
+            </header>
+            <form class="addTodo-form">
+                <div class="addTodo-form-item">
+                    <label class="addTodo-form__label">
+                        Title:
+                    </label>
+                    <input type="text" class="addTodo-form__input add-input">
+                </div>
+                <div class="addTodo-form-item">
+                    <label class="addTodo-form__label">
+                        Text:
+                    </label>
+                    <textarea class="addTodo-form__textarea add-input"></textarea>
+                </div>
+                <div class="addTodo-form-item color-item">
+                    <label class="addTodo-form__label">
+                        Color:
+                    </label>
+                    <span class="box-color color-red"></span>
+                    <span class="box-color color-blue"></span>
+                    <span class="box-color color-green"></span>
+                    <span class="box-color color-yellow"></span>
+                    <span class="box-color color-violet"></span>
+                </div>
+                <div class="addTodo-form-item button-item">
+                    <div class="addTodo-form__btn">
+                        <button class="addTodo-form__btn-button">
+                            Add ToDo
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- EDIT TODO -->
+    <div class="editTodo" style="display: none;">
+        <div class="editTodo-container">
+            <header class="editTodo-header">
+                <h3 class="editTodo-header__h3">
+                    Edit ToDo
+                </h3>
+                <div class="editTodo-header__icon">
+                    <i class="editTodo-header__icon-close fas fa-times"></i>
+                </div>
+            </header>
+            <form class="editTodo-form">
+                <div class="editTodo-form-item">
+                    <label class="editTodo-form__label">
+                        Title:
+                    </label>
+                    <input type="text" class="editTodo-form__input edit-input">
+                </div>
+                <div class="editTodo-form-item">
+                    <label class="editTodo-form__label">
+                        Text:
+                    </label>
+                    <textarea class="editTodo-form__textarea edit-input"></textarea>
+                </div>
+                <div class="editTodo-form-item color-item">
+                    <label class="editTodo-form__label">
+                        Color:
+                    </label>
+                    <span class="box-color color-red"></span>
+                    <span class="box-color color-blue"></span>
+                    <span class="box-color color-green"></span>
+                    <span class="box-color color-yellow"></span>
+                    <span class="box-color color-violet"></span>
+                </div>
+                <div class="editTodo-form-item button-item">
+                    <div class="editTodo-form__btn">
+                        <button class="editTodo-form__btn-button">
+                            Edit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <main class="main">
+        <div class="todos">
+            <div class="todos-list">
+
+                <div class="todo-item">
+                    <header class="todo-item__header">
+                        <div class="todo-item__header-title">
+                            <h4 class="todo-item__header-h4">
+                                My To Do
+                            </h4>
+                        </div>
+                        <div class="todo-item__header-icon">
+                            <i class="todo-item__header-icon fas fa-angle-up"></i>
+                        </div>
+                    </header>
+                    <div class="todo-item-hidden">
+                        <main class="todo-item__main">
+                            <p class="todo-item__main-p">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque commodi est velit laudantium id, mollitia perferendis reiciendis tempore deleniti dolorem, sit quis, saepe molestiae aut nemo omnis fuga doloremque animi.
+                            </p>
+                        </main>
+                        <footer class="todo-item__footer">
+                            <div class="todo-item__footer-date">
+                                18/5/2021 12:43hs
+                            </div>
+                            <div class="todo-item__footer-icons">
+                                <i class="todo-item__footer-icon edit-icon fas fa-edit"></i>
+                                <i class="todo-item__footer-icon delete-icon fas fa-trash"></i>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <!--SCRIPT-->
+    <script src="./script.js"></script>
 </body>
 </html>
