@@ -25,10 +25,10 @@ const checkLocalStorage = ()=>{
 }
 
 //localstorage -- get todos
-window.addEventListener("load",()=>{
+const getToLocalStorage=()=>{
     let todos;
     if(checkLocalStorage()){
-        todos = JSON.parse(localStorage.getItem("todos"));
+        todos = JSON.parse(localStorage.getItem("todos"));    
         for(let i=0;i<=todos.length-1;i++){
             //todo structure
             const todo = `
@@ -68,7 +68,9 @@ window.addEventListener("load",()=>{
         }
 
     }
-})
+}
+
+window.addEventListener("load",getToLocalStorage)
 
 //localstorage -- add todo
 const addToLocalStorage = (title,txt,color,hour)=>{
@@ -91,6 +93,8 @@ const deleteToLocalStorage = index => {
         todos = JSON.parse(localStorage.getItem("todos"));
         todos.splice(index,1);
         localStorage.setItem("todos", JSON.stringify(todos));
+        todosContainer.innerHTML=""
+        getToLocalStorage()
     }
 }
 
@@ -242,10 +246,9 @@ todosContainer.addEventListener("click",(e)=>{
             const todo = e.target.parentElement.parentElement.parentElement.parentElement;
             const index = todo.classList[1].slice(todo.classList[1].indexOf("-")+1);
             deleteToLocalStorage(index);
-            todo.outerHTML = "";
-
             totalTodos--
             todosTotalBox.innerHTML = totalTodos;
+            todo.remove()
         }
     }
 })
@@ -344,8 +347,6 @@ todosContainer.addEventListener("click",(e)=>{
 let typed = new String;
 document.querySelector(".searchBox__input").addEventListener("keyup",(e)=>{
     typed = document.querySelector(".searchBox__input").value
-
-    console.log(typed)
     for(let i=0; i<=totalTodos-1;i++){
         const todo = document.querySelector(`.todo-${i}`);
         const title = todo.firstElementChild.firstElementChild.firstElementChild.innerHTML.trim().toLocaleLowerCase();
