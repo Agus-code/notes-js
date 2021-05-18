@@ -324,8 +324,8 @@ todosContainer.addEventListener("click",(e)=>{
     if(e.target.classList[1]==="edit-icon"){
         const todoContainer = e.target.parentElement.parentElement.parentElement.parentElement;
         todoToEdit =  todoContainer;
-        const title = todoContainer.firstElementChild.firstElementChild.firstElementChild.textContent.replace(/^(&nbsp;|\s)*/, '');
-        const txt = todoContainer.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.textContent.replace(/^(&nbsp;|\s)*/, '')
+        const title = todoContainer.firstElementChild.firstElementChild.firstElementChild.textContent.trim();
+        const txt = todoContainer.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.textContent.trim()
         const color = todoContainer.classList[2].slice(todoContainer.classList[2].indexOf("-")+1);
 
         editTodoBox.style.display="flex"
@@ -348,7 +348,7 @@ document.querySelector(".searchBox__input").addEventListener("keyup",(e)=>{
     console.log(typed)
     for(let i=0; i<=totalTodos-1;i++){
         const todo = document.querySelector(`.todo-${i}`);
-        const title = todo.firstElementChild.firstElementChild.firstElementChild.innerHTML.replace(/^(&nbsp;|\s)*/, '').toLocaleLowerCase();
+        const title = todo.firstElementChild.firstElementChild.firstElementChild.innerHTML.trim().toLocaleLowerCase();
         if(!title.includes(typed)){
             todo.style.display="none"
         }
