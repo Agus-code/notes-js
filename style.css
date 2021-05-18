@@ -156,7 +156,7 @@ body{
 .addTodo{
     position: absolute;
     min-height: 100vh;
-    max-width: 100vh;
+    max-width: 100vw;
     top: 0;
     background: #0009;
     min-width: 100vw;
@@ -260,7 +260,7 @@ body{
 .editTodo{
     position: absolute;
     min-height: 100vh;
-    max-width: 100vh;
+    max-width: 100vw;
     top: 0;
     background: #0009;
     min-width: 100vw;
