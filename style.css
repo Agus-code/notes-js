@@ -11,6 +11,9 @@ body{
     height: 50px;
     max-height: 50px;
     background: #2980b9;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 .header-container{
     display: flex;
@@ -153,12 +156,14 @@ body{
 .addTodo{
     position: absolute;
     min-height: 100vh;
+    max-height: 100vh;
     top: 0;
     background: #0009;
     min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 .addTodo-container{
     background: #fff;
@@ -255,12 +260,14 @@ body{
 .editTodo{
     position: absolute;
     min-height: 100vh;
+    max-height: 100vh;
     top: 0;
     background: #0009;
     min-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
 }
 .editTodo-container{
     background: #fff;
@@ -419,6 +426,7 @@ body{
 .todo-item__header-icon{
     font-size: 1.5rem;
     pointer-events: none;
+    z-index: 10;
 }
 .todo-item__header-icon__toggle{
     pointer-events: none;

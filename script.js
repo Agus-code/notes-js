@@ -11,27 +11,128 @@ const addFormSpace = document.querySelector(".addTodo");
 const editFormSpace = document.querySelector(".editTodo");
 const editTodoBox = document.querySelector(".editTodo");
 
+
+
+let totalTodosSession = 0;
 let totalTodos = 0;
+//localstorage
+const checkLocalStorage = ()=>{  
+    if(localStorage.getItem("todos") === null) {
+        return false;    
+    }else{
+        return true;
+    }    
+}
+
+//localstorage -- get todos
+window.addEventListener("load",()=>{
+    let todos;
+    if(checkLocalStorage()){
+        todos = JSON.parse(localStorage.getItem("todos"));
+        for(let i=0;i<=todos.length-1;i++){
+            //todo structure
+            const todo = `
+                <div class="todo-item todo-${i} todo-${todos[i][2]}">
+                    <header class="todo-item__header">
+                        <div class="todo-item__header-title">
+                            <h4 class="todo-item__header-h4">
+                                ${todos[i][0]}
+                            </h4>
+                        </div>
+                        <div class="todo-item__header-icon">
+                            <i class="todo-item__header-icon__toggle fas fa-angle-up"></i>
+                        </div>
+                    </header>
+                    <div class="todo-item-hidden">
+                        <main class="todo-item__main">
+                            <p class="todo-item__main-p">
+                                ${todos[i][1]}
+                            </p>
+                        </main>
+                        <footer class="todo-item__footer">
+                            <div class="todo-item__footer-date">
+                                ${todos[i][3]}
+                            </div>
+                            <div class="todo-item__footer-icons">
+                                <i class="todo-item__footer-icon edit-icon fas fa-edit"></i>
+                                <i class="todo-item__footer-icon delete-icon fas fa-trash"></i>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            `
+            todosContainer.innerHTML+=todo;
+            totalTodos = todos.length;
+            totalTodosSession = todos.length;
+            todosTotalBox.innerHTML = totalTodos
+        }
+
+    }
+})
+
+//localstorage -- add todo
+const addToLocalStorage = (title,txt,color,hour)=>{
+    let todos;
+    const todo = [title,txt,color,hour]
+    if(checkLocalStorage()){
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }
+    else{
+        todos = [];
+    }
+    todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+//localstorage -- delete todo
+const deleteToLocalStorage = index => {
+    let todos;
+    if(checkLocalStorage()){
+        todos = JSON.parse(localStorage.getItem("todos"));
+        todos.splice(index,1);
+        localStorage.setItem("todos", JSON.stringify(todos));
+    }
+}
+
+//localstorage -- edit todo
+const editToLocalStorage = (index,title,txt,color,hour) =>{
+    const todo = [title,txt,color,hour]
+    let todos;
+    let newTodos = [];
+    if(checkLocalStorage()){
+        todos = JSON.parse(localStorage.getItem("todos"));
+        for(let i=0;i<todos.length;i++){
+            if(i==index){
+                newTodos.push(todo);
+            }
+            else{
+                newTodos.push(todos[i]);
+            }
+        }
+        localStorage.setItem("todos", JSON.stringify(newTodos));
+    }
+}
+
 //add new todo
 const createTodo = (title,txt,color) =>{
 
     //create date
     const checkNumberDate = n => {
-        if(n.length==1){
+        if(n.toString().length==1){
             return `0${n}`
         }
         return n;
     }
     const data = new Date;
     const day = data.getDate();
-    const month = checkNumberDate(data.getMonth());
+    const month = checkNumberDate(data.getMonth()+1);
     const year = data.getFullYear();
     const hour = checkNumberDate(data.getHours());
     const minute = checkNumberDate(data.getMinutes());
 
     //todo structure
     const todo = `
-                <div class="todo-item todo-${color}">
+                <div class="todo-item todo-${totalTodosSession} todo-${color} ">
                     <header class="todo-item__header">
                         <div class="todo-item__header-title">
                             <h4 class="todo-item__header-h4">
@@ -63,8 +164,10 @@ const createTodo = (title,txt,color) =>{
         
     todosContainer.innerHTML += todo;
     addTodoBox.style.display = "none"
+    totalTodosSession++
     totalTodos++
     todosTotalBox.innerHTML = totalTodos;
+    addToLocalStorage(title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
 }
 
 
@@ -137,6 +240,8 @@ todosContainer.addEventListener("click",(e)=>{
     if(e.target.classList[1]==="delete-icon"){
         if(confirm("Estas seguro de borrarlo?")){
             const todo = e.target.parentElement.parentElement.parentElement.parentElement;
+            const index = todo.classList[1].slice(todo.classList[1].indexOf("-")+1);
+            deleteToLocalStorage(index);
             todo.outerHTML = "";
 
             totalTodos--
@@ -150,51 +255,35 @@ let todoToEdit;
 
 const editTodo = (title,txt,color) =>{
     const checkNumberDate = n => {
-        if(n.length==1){
+        if(n.toString().length==1){
             return `0${n}`
         }
         return n;
     }
     const data = new Date;
     const day = data.getDate();
-    const month = checkNumberDate(data.getMonth());
+    const month = checkNumberDate(data.getMonth())+1;
     const year = data.getFullYear();
     const hour = checkNumberDate(data.getHours());
     const minute = checkNumberDate(data.getMinutes());
 
-    //todo structure
-    const todo = `
-                <div class="todo-item todo-${color}">
-                    <header class="todo-item__header">
-                        <div class="todo-item__header-title">
-                            <h4 class="todo-item__header-h4">
-                                ${title}
-                            </h4>
-                        </div>
-                        <div class="todo-item__header-icon">
-                            <i class="todo-item__header-icon__toggle fas fa-angle-up"></i>
-                        </div>
-                    </header>
-                    <div class="todo-item-hidden">
-                        <main class="todo-item__main">
-                            <p class="todo-item__main-p">
-                                ${txt}
-                            </p>
-                        </main>
-                        <footer class="todo-item__footer">
-                            <div class="todo-item__footer-date">
-                                ${day}/${month}/${year} ${hour}:${minute}hs
-                            </div>
-                            <div class="todo-item__footer-icons">
-                                <i class="todo-item__footer-icon edit-icon fas fa-edit"></i>
-                                <i class="todo-item__footer-icon delete-icon fas fa-trash"></i>
-                            </div>
-                        </footer>
-                    </div>
-                </div>
-            `
-        
-    todoToEdit.outerHTML = todo;
+
+    const editTodoTitle = todoToEdit.firstElementChild.firstElementChild.firstElementChild;
+    const editTodoTxt = todoToEdit.firstElementChild.nextElementSibling.firstElementChild.firstElementChild;
+    const editTodoColor = todoToEdit;
+    const prevColor = todoToEdit.classList[2].slice(todoToEdit.classList[1].indexOf("-")+1)
+    const editTodoHour = todoToEdit.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild;
+
+    editTodoTitle.innerHTML = title;
+    editTodoTxt.innerHTML = txt;
+    editTodoColor.classList.remove(`todo-${prevColor}`);
+    editTodoColor.classList.add(`todo-${color}`);
+    editTodoHour.innerHTML = `${day}/${month}/${year} ${hour}:${minute}hs`
+
+    const index = todoToEdit.classList[1].slice(todoToEdit.classList[1].indexOf("-")+1)
+
+    editToLocalStorage(index,title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
+
     editTodoBox.style.display = "none"
 }
 
@@ -237,7 +326,7 @@ todosContainer.addEventListener("click",(e)=>{
         todoToEdit =  todoContainer;
         const title = todoContainer.firstElementChild.firstElementChild.firstElementChild.textContent.replace(/^(&nbsp;|\s)*/, '');
         const txt = todoContainer.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.textContent.replace(/^(&nbsp;|\s)*/, '')
-        const color = todoContainer.classList[1].slice(todoContainer.classList[1].indexOf("-")+1);
+        const color = todoContainer.classList[2].slice(todoContainer.classList[2].indexOf("-")+1);
 
         editTodoBox.style.display="flex"
         const editTitle = document.querySelector(".editTodo-form__input");
@@ -248,4 +337,27 @@ todosContainer.addEventListener("click",(e)=>{
         editTxt.value = txt
         editColor.classList.add("color-choose")
     }
+})
+
+
+//search
+let typed = new String;
+document.querySelector(".searchBox__input").addEventListener("keyup",(e)=>{
+    typed = document.querySelector(".searchBox__input").value
+
+    console.log(typed)
+    for(let i=0; i<=totalTodos-1;i++){
+        const todo = document.querySelector(`.todo-${i}`);
+        const title = todo.firstElementChild.firstElementChild.firstElementChild.innerHTML.replace(/^(&nbsp;|\s)*/, '').toLocaleLowerCase();
+        if(!title.includes(typed)){
+            todo.style.display="none"
+        }
+    }
+    if(typed==""){
+        for(let i=0; i<=totalTodos-1;i++){
+            const todo = document.querySelector(`.todo-${i}`);
+            todo.style.display="block"
+        }
+    }
+    
 })
