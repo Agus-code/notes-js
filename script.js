@@ -350,7 +350,7 @@ document.querySelector(".searchBox__input").addEventListener("keyup",(e)=>{
     for(let i=0; i<=totalTodos-1;i++){
         const todo = document.querySelector(`.todo-${i}`);
         const title = todo.firstElementChild.firstElementChild.firstElementChild.innerHTML.trim().toLocaleLowerCase();
-        if(!title.includes(typed)){
+        if(!title.includes(typed.toLocaleLowerCase())){
             todo.style.display="none"
         }
     }
