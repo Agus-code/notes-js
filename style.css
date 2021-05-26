@@ -152,8 +152,8 @@ body{
     background: #dedede;
 }
 
-/* ==========ADD TODO========== */
-.addTodo{
+/* ==========ADD Note========== */
+.addNote{
     position: absolute;
     min-height: 100vh;
     max-width: 100vw;
@@ -164,7 +164,7 @@ body{
     align-items: center;
     z-index: 100;
 }
-.addTodo-container{
+.addNote-container{
     background: #fff;
     color: #000;
     border: 1px solid #888;
@@ -175,26 +175,26 @@ body{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     max-width: 90%;
 }
-.addTodo-header{
+.addNote-header{
     margin-bottom: 20px;
 }
-.addTodo-header__h3{
+.addNote-header__h3{
     margin: 0;
     font-size: 1.5rem;
     color: #444;
 }
-.addTodo-header__icon{
+.addNote-header__icon{
     position: absolute;
     top: 5px;
     right: 10px;
     font-size: 1.3rem;
 }
-.addTodo-form-item{
+.addNote-form-item{
     display: grid;
     grid-template-columns: 25% 75%;
     margin-bottom: 10px;
 }
-.addTodo-form__label{
+.addNote-form__label{
     font-size: 1.2rem;
 }
 .add-input{
@@ -208,7 +208,7 @@ body{
 .add-input:focus{
     border-right: 3px solid #2c3e50;
 }
-.addTodo-form__textarea{
+.addNote-form__textarea{
     width: 100%;
     resize: none;
     height: 7rem;
@@ -231,7 +231,7 @@ body{
 .button-item{
     grid-template-columns: auto;
 }
-.addTodo-form__btn{
+.addNote-form__btn{
     width: 80%;
     margin: 20px auto;
 }
@@ -240,7 +240,7 @@ body{
 .color-green{background: #00b894;}
 .color-yellow{background: #fdcb6e;}
 .color-violet{background: #6c5ce7;}
-.addTodo-form__btn-button{
+.addNote-form__btn-button{
     width: 100%;
     font-size: 1.2rem;
     border: none;
@@ -251,13 +251,13 @@ body{
     border-radius: 9px;
     color: #2d3436;
 }
-.addTodo-form__btn-button:hover{
+.addNote-form__btn-button:hover{
     background: #2d3436;
     color: #fff;
 }
 
-/* ==========EDIT TODO========== */
-.editTodo{
+/* ==========EDIT Note========== */
+.editNote{
     position: absolute;
     min-height: 100vh;
     max-width: 100vw;
@@ -268,7 +268,7 @@ body{
     align-items: center;
     z-index: 100;
 }
-.editTodo-container{
+.editNote-container{
     background: #fff;
     color: #000;
     border: 1px solid #888;
@@ -279,26 +279,26 @@ body{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     max-width: 90%;
 }
-.editTodo-header{
+.editNote-header{
     margin-bottom: 20px;
 }
-.editTodo-header__h3{
+.editNote-header__h3{
     margin: 0;
     font-size: 1.5rem;
     color: #444;
 }
-.editTodo-header__icon{
+.editNote-header__icon{
     position: absolute;
     top: 5px;
     right: 10px;
     font-size: 1.3rem;
 }
-.editTodo-form-item{
+.editNote-form-item{
     display: grid;
     grid-template-columns: 25% 75%;
     margin-bottom: 10px;
 }
-.editTodo-form__label{
+.editNote-form__label{
     font-size: 1.2rem;
 }
 .edit-input{
@@ -312,7 +312,7 @@ body{
 .edit-input:focus{
     border-right: 3px solid #2c3e50;
 }
-.editTodo-form__textarea{
+.editNote-form__textarea{
     width: 100%;
     resize: none;
     height: 7rem;
@@ -332,7 +332,7 @@ body{
 .button-item{
     grid-template-columns: auto;
 }
-.editTodo-form__btn{
+.editNote-form__btn{
     width: 80%;
     margin: 20px auto;
 }
@@ -342,7 +342,7 @@ body{
 .color-yellow{background: #fdcb6e;}
 .color-violet{background: #6c5ce7;}
 .color-pink{background: #e84393;}
-.editTodo-form__btn-button{
+.editNote-form__btn-button{
     width: 100%;
     font-size: 1.2rem;
     border: none;
@@ -353,30 +353,30 @@ body{
     border-radius: 9px;
     color: #2d3436;
 }
-.editTodo-form__btn-button:hover{
+.editNote-form__btn-button:hover{
     background: #2d3436;
     color: #fff;
 }
 @media only screen and (min-width: 900px){
-    .addTodo-container,
-    .editTodo-container{
+    .addNote-container,
+    .editNote-container{
         width: 40%;
     }
-    .addTodo-header,
-    .editTodo-header{
+    .addNote-header,
+    .editNote-header{
         margin-bottom: 30px;
     }
-    .addTodo-header__h3,
-    .editTodo-header__h3{
+    .addNote-header__h3,
+    .editNote-header__h3{
         font-size: 2rem
     }
-    .addTodo-header__icon,
-    .editTodo-header__icon{
+    .addNote-header__icon,
+    .editNote-header__icon{
         font-size: 1.5rem;
         cursor: pointer;
     }
-    .addTodo-form__label,
-    .editTodo-form__label{
+    .addNote-form__label,
+    .editNote-form__label{
         font-size: 1.4rem;
         text-align: left;
     }
@@ -390,138 +390,138 @@ body{
     .edit-input{
         font-size: 1.4rem;
     }
-    .addTodo-form__btn-button,
-    .editTodo-form__btn-button{
+    .addNote-form__btn-button,
+    .editNote-form__btn-button{
         cursor: pointer;
     }
 }
 
 /* ===========TO DO========== */
-.todos{
+.Notes{
     margin: 30px 20px 0 20px;
 }
-.todos-list{
+.Notes-list{
     display: grid;
     grid-template-columns: 1fr;
 }
-.todo-item{
+.Note-item{
     border-radius: 9px;
     overflow: hidden;
     margin-bottom: 20px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-.todo-item__header{
+.Note-item__header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
 }
-.todo-item__header-title{
+.Note-item__header-title{
     pointer-events: none;
 }
-.todo-item__header-h4{
+.Note-item__header-h4{
     margin: 0;
     font-size: 1.5rem;
 }
-.todo-item__header-icon{
+.Note-item__header-icon{
     font-size: 1.5rem;
     pointer-events: none;
     z-index: 10;
 }
-.todo-item__header-icon__toggle{
+.Note-item__header-icon__toggle{
     pointer-events: none;
     transition: .2s linear;
 }
-.todo-item__header-icon__toggle.activate{
+.Note-item__header-icon__toggle.activate{
     transform: rotateZ(180deg);
 }
-.todo-item-hidden{
+.Note-item-hidden{
     display: none;
 }
-.todo-item__main{
+.Note-item__main{
     padding: 5px 10px;
     min-height: 140px;
 }
-.todo-item__main-p{
+.Note-item__main-p{
     margin: 0;
     margin-right: 10px;
 }
-.todo-item__footer{
+.Note-item__footer{
     display: flex;
     padding: 2px 10px;
     justify-content: space-between;
     align-items: center;
 }
-.todo-item__footer-date{
+.Note-item__footer-date{
     font-size: 1rem;
     color: #403a3a;
 }
-.todo-item__footer-icons{
+.Note-item__footer-icons{
     font-size: 1.3rem;
 }
-.todo-item__footer-icon{
+.Note-item__footer-icon{
     margin-right: 8px;
     cursor: pointer;
 }
-.todo-item.active > .todo-item__header{
+.Note-item.active > .Note-item__header{
     border-bottom: 1px solid #000;
 }
 
-.todo-item.todo-red .todo-item__header,
-.todo-item.todo-red .todo-item__footer{
+.Note-item.Note-red .Note-item__header,
+.Note-item.Note-red .Note-item__footer{
     background: #d63031;
 }
-.todo-item.todo-red .todo-item__main{
+.Note-item.Note-red .Note-item__main{
     background-color: #ff7675;
 }
-.todo-item.todo-blue .todo-item__header,
-.todo-item.todo-blue .todo-item__footer{
+.Note-item.Note-blue .Note-item__header,
+.Note-item.Note-blue .Note-item__footer{
     background: #0984e3;
 }
-.todo-item.todo-blue .todo-item__main{
+.Note-item.Note-blue .Note-item__main{
     background-color: #74b9ff;
 }
-.todo-item.todo-green .todo-item__header,
-.todo-item.todo-green .todo-item__footer{
+.Note-item.Note-green .Note-item__header,
+.Note-item.Note-green .Note-item__footer{
     background: #00b894;
 }
-.todo-item.todo-green .todo-item__main{
+.Note-item.Note-green .Note-item__main{
     background-color: #55efc4;
 }
-.todo-item.todo-yellow .todo-item__header,
-.todo-item.todo-yellow .todo-item__footer{
+.Note-item.Note-yellow .Note-item__header,
+.Note-item.Note-yellow .Note-item__footer{
     background: #fdcb6e;
 }
-.todo-item.todo-yellow .todo-item__main{
+.Note-item.Note-yellow .Note-item__main{
     background-color: #ffeaa7;
 }
-.todo-item.todo-violet .todo-item__header,
-.todo-item.todo-violet .todo-item__footer{
+.Note-item.Note-violet .Note-item__header,
+.Note-item.Note-violet .Note-item__footer{
     background: #6c5ce7;
 }
-.todo-item.todo-violet .todo-item__main{
+.Note-item.Note-violet .Note-item__main{
     background: #a29bfe;
 }
-.todo-item.todo-pink .todo-item__header,
-.todo-item.todo-pink .todo-item__footer{
+.Note-item.Note-pink .Note-item__header,
+.Note-item.Note-pink .Note-item__footer{
     background: #e84393;
 }
-.todo-item.todo-pink .todo-item__main{
+.Note-item.Note-pink .Note-item__main{
     background: #fd79a8;
 }
 @media only screen and (min-width: 900px){
-    .todos{
+    .Notes{
         width: 80%;
         margin: 30px auto 0 auto;
     }
-    .todo-item__header-icon{
+    .Note-item__header-icon{
         display: none;
     }
-    .todos-list{
+    .Notes-list{
         grid-template-columns: repeat(3,1fr);
         gap: 20px;
     }
-    .todo-item-hidden{
+    .Note-item-hidden{
         display: block;
     }
 }

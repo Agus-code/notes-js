@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo list JS</title>
+    <title>Note list JS</title>
     <!--CSS-->
     <link rel="stylesheet" href="style.css">
     <!--FONT AWESOME-->
@@ -19,11 +19,11 @@
         <div class="header-container">
             <div class="header-title">
                 <h1 class="header-title__h1">
-                    ToDo List JS
+                    Note List JS
                 </h1>
             </div>
             <div class="header-count">
-                <span class="header-count__txt">ToDos</span>
+                <span class="header-count__txt">Notes</span>
                 <span class="header-count__num">0</span>
             </div>
         </div>
@@ -34,14 +34,14 @@
         <div class="searchAndAdd-container">
             <div class="search">
                 <div class="searchBox">
-                    <input type="text" placeholder="Search ToDo" class="searchBox__input"/>
+                    <input type="text" placeholder="Search Note" class="searchBox__input"/>
                     <i class="searchBox__icon fas fa-search"></i>
                 </div>
             </div>
             <div class="addBtn">
                 <div class="addBtnBox">
                     <button class="addBtnBox__btn">
-                        New ToDo
+                        New Note
                         <i class="addBtnBox__icon fas fa-plus"></i>
                     </button>
                 </div>
@@ -52,32 +52,32 @@
     <!-- DIVITION -->
     <span class="divition"></span>
 
-    <!-- ADD TODO -->
-    <div class="addTodo" style="display: none;">
-        <div class="addTodo-container">
-            <header class="addTodo-header">
-                <h3 class="addTodo-header__h3">
-                    New ToDo
+    <!-- ADD Note -->
+    <div class="addNote" style="display: none;">
+        <div class="addNote-container">
+            <header class="addNote-header">
+                <h3 class="addNote-header__h3">
+                    New Note
                 </h3>
-                <div class="addTodo-header__icon">
-                    <i class="addTodo-header__icon-close fas fa-times"></i>
+                <div class="addNote-header__icon">
+                    <i class="addNote-header__icon-close fas fa-times"></i>
                 </div>
             </header>
-            <form class="addTodo-form">
-                <div class="addTodo-form-item">
-                    <label class="addTodo-form__label">
+            <form class="addNote-form">
+                <div class="addNote-form-item">
+                    <label class="addNote-form__label">
                         Title:
                     </label>
-                    <input type="text" class="addTodo-form__input add-input">
+                    <input type="text" class="addNote-form__input add-input">
                 </div>
-                <div class="addTodo-form-item">
-                    <label class="addTodo-form__label">
+                <div class="addNote-form-item">
+                    <label class="addNote-form__label">
                         Text:
                     </label>
-                    <textarea class="addTodo-form__textarea add-input"></textarea>
+                    <textarea class="addNote-form__textarea add-input"></textarea>
                 </div>
-                <div class="addTodo-form-item color-item">
-                    <label class="addTodo-form__label">
+                <div class="addNote-form-item color-item">
+                    <label class="addNote-form__label">
                         Color:
                     </label>
                     <span class="box-color add-box-color color-red"></span>
@@ -87,10 +87,10 @@
                     <span class="box-color add-box-color color-violet"></span>
                     <span class="box-color add-box-color color-pink"></span>
                 </div>
-                <div class="addTodo-form-item button-item">
-                    <div class="addTodo-form__btn">
-                        <button class="addTodo-form__btn-button">
-                            Add ToDo
+                <div class="addNote-form-item button-item">
+                    <div class="addNote-form__btn">
+                        <button class="addNote-form__btn-button">
+                            Add Note
                         </button>
                     </div>
                 </div>
@@ -98,32 +98,32 @@
         </div>
     </div>
 
-    <!-- EDIT TODO -->
-    <div class="editTodo" style="display: none;">
-        <div class="editTodo-container">
-            <header class="editTodo-header">
-                <h3 class="editTodo-header__h3">
-                    Edit ToDo
+    <!-- EDIT Note -->
+    <div class="editNote" style="display: none;">
+        <div class="editNote-container">
+            <header class="editNote-header">
+                <h3 class="editNote-header__h3">
+                    Edit Note
                 </h3>
-                <div class="editTodo-header__icon">
-                    <i class="editTodo-header__icon-close fas fa-times"></i>
+                <div class="editNote-header__icon">
+                    <i class="editNote-header__icon-close fas fa-times"></i>
                 </div>
             </header>
-            <form class="editTodo-form">
-                <div class="editTodo-form-item">
-                    <label class="editTodo-form__label">
+            <form class="editNote-form">
+                <div class="editNote-form-item">
+                    <label class="editNote-form__label">
                         Title:
                     </label>
-                    <input type="text" class="editTodo-form__input edit-input">
+                    <input type="text" class="editNote-form__input edit-input">
                 </div>
-                <div class="editTodo-form-item">
-                    <label class="editTodo-form__label">
+                <div class="editNote-form-item">
+                    <label class="editNote-form__label">
                         Text:
                     </label>
-                    <textarea class="editTodo-form__textarea edit-input"></textarea>
+                    <textarea class="editNote-form__textarea edit-input"></textarea>
                 </div>
-                <div class="editTodo-form-item color-item">
-                    <label class="editTodo-form__label">
+                <div class="editNote-form-item color-item">
+                    <label class="editNote-form__label">
                         Color:
                     </label>
                     <span class="box-color edit-box-color color-red"></span>
@@ -133,9 +133,9 @@
                     <span class="box-color edit-box-color color-violet"></span>
                     <span class="box-color edit-box-color color-pink"></span>
                 </div>
-                <div class="editTodo-form-item button-item">
-                    <div class="editTodo-form__btn">
-                        <button class="editTodo-form__btn-button">
+                <div class="editNote-form-item button-item">
+                    <div class="editNote-form__btn">
+                        <button class="editNote-form__btn-button">
                             Edit
                         </button>
                     </div>
@@ -145,8 +145,8 @@
     </div>
 
     <main class="main">
-        <div class="todos">
-            <div class="todos-list">
+        <div class="Notes">
+            <div class="Notes-list">
 
                 
                 
