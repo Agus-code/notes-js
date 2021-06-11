@@ -10,6 +10,7 @@ const NotesTotalBox = document.querySelector(".header-count__num");
 const addFormSpace = document.querySelector(".addNote");
 const editFormSpace = document.querySelector(".editNote");
 const editNoteBox = document.querySelector(".editNote");
+const searchBox = document.querySelector(".searchBox__input");
 
 
 
@@ -172,6 +173,7 @@ const createNote = (title,txt,color) =>{
     totalNotes++
     NotesTotalBox.innerHTML = totalNotes;
     addToLocalStorage(title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
+    searchBox.value = "";
 }
 
 
@@ -345,8 +347,8 @@ NotesContainer.addEventListener("click",(e)=>{
 
 //search
 let typed = new String;
-document.querySelector(".searchBox__input").addEventListener("keyup",(e)=>{
-    typed = document.querySelector(".searchBox__input").value
+searchBox.addEventListener("keyup",(e)=>{
+    typed = searchBox.value;
     for(let i=0; i<=totalNotes-1;i++){
         const Note = document.querySelector(`.Note-${i}`);
         const title = Note.firstElementChild.firstElementChild.firstElementChild.innerHTML.trim().toLocaleLowerCase();
