@@ -290,6 +290,7 @@ const editNote = (title,txt,color) =>{
     editToLocalStorage(index,title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
 
     editNoteBox.style.display = "none"
+    searchBox.value = "";
 }
 
 document.querySelector(".editNote-form__btn-button")?.addEventListener("click",(e)=>{
