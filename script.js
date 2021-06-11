@@ -19,10 +19,16 @@ let totalNotesSession = 0;
 let totalNotes = 0;
 
 const showAgainNotes = ()=>{
+    if(typed.length>0) return false;
     for(let i=0; i<=totalNotes-1;i++){
         const Note = document.querySelector(`.Note-${i}`);
         Note.style.display="block"
     }
+}
+
+const checkChar = (t)=>{
+    if(/^[a-zA-Z0-9]+$/.test(t)) return true
+    return false;
 }
 
 
@@ -130,6 +136,10 @@ const editToLocalStorage = (index,title,txt,color,hour) =>{
 
 //add new Note
 const createNote = (title,txt,color) =>{
+
+    //chek char
+    if(!checkChar(title)) return alert("invalid characters");
+    if(!checkChar(txt)) return alert("invalid characters");
 
     //create date
     const checkNumberDate = n => {
