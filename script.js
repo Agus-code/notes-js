@@ -19,7 +19,7 @@ let totalNotesSession = 0;
 let totalNotes = 0;
 
 const showAgainNotes = ()=>{
-    if(typed.length>0) return false;
+    if(totalNotes>1) return false;
     for(let i=0; i<=totalNotes-1;i++){
         const Note = document.querySelector(`.Note-${i}`);
         Note.style.display="block"
