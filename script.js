@@ -17,6 +17,15 @@ let typed = new String;
 
 let totalNotesSession = 0;
 let totalNotes = 0;
+
+const showAgainNotes = ()=>{
+    for(let i=0; i<=totalNotes-1;i++){
+        const Note = document.querySelector(`.Note-${i}`);
+        Note.style.display="block"
+    }
+}
+
+
 //localstorage
 const checkLocalStorage = ()=>{  
     if(localStorage.getItem("Notes") === null) {
@@ -176,6 +185,7 @@ const createNote = (title,txt,color) =>{
     addToLocalStorage(title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
     searchBox.value = "";
     typed = "";
+    showAgainNotes();
 }
 
 
@@ -269,7 +279,7 @@ const editNote = (title,txt,color) =>{
     }
     const data = new Date;
     const day = data.getDate();
-    const month = checkNumberDate(data.getMonth())+1;
+    const month = checkNumberDate(data.getMonth()+1);
     const year = data.getFullYear();
     const hour = checkNumberDate(data.getHours());
     const minute = checkNumberDate(data.getMinutes());
@@ -294,6 +304,7 @@ const editNote = (title,txt,color) =>{
     editNoteBox.style.display = "none"
     searchBox.value = "";
     typed = "";
+    showAgainNotes();
 }
 
 document.querySelector(".editNote-form__btn-button")?.addEventListener("click",(e)=>{
