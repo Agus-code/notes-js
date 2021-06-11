@@ -247,6 +247,7 @@ NotesContainer.addEventListener("click",(e)=>{
             const index = Note.classList[1].slice(Note.classList[1].indexOf("-")+1);
             deleteToLocalStorage(index);
             totalNotes = totalNotes - 1
+            NotesTotalBox.innerHTML = totalNotes;
             Note.remove()
         }
     }
