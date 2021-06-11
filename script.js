@@ -11,6 +11,7 @@ const addFormSpace = document.querySelector(".addNote");
 const editFormSpace = document.querySelector(".editNote");
 const editNoteBox = document.querySelector(".editNote");
 const searchBox = document.querySelector(".searchBox__input");
+let typed = new String;
 
 
 
@@ -174,6 +175,7 @@ const createNote = (title,txt,color) =>{
     NotesTotalBox.innerHTML = totalNotes;
     addToLocalStorage(title,txt,color,`${day}/${month}/${year} ${hour}:${minute}hs`)
     searchBox.value = "";
+    typed = "";
 }
 
 
@@ -291,6 +293,7 @@ const editNote = (title,txt,color) =>{
 
     editNoteBox.style.display = "none"
     searchBox.value = "";
+    typed = "";
 }
 
 document.querySelector(".editNote-form__btn-button")?.addEventListener("click",(e)=>{
@@ -347,7 +350,6 @@ NotesContainer.addEventListener("click",(e)=>{
 
 
 //search
-let typed = new String;
 searchBox.addEventListener("keyup",(e)=>{
     typed = searchBox.value;
     for(let i=0; i<=totalNotes-1;i++){
